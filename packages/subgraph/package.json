@@ -19,6 +19,7 @@
     "prepare-mainnet-bsc": "mustache config/mainnet-bsc.json subgraph.template.yaml > subgraph.yaml",
     "prepare-bsc-mainnet": "mustache config/bsc-mainnet.json subgraph.template.yaml > subgraph.yaml",
     "prepare-decommerce-rinkeby": "mustache config/rinkeby-decommerce.json subgraph.template.yaml > subgraph.yaml",
+    "prepare-decommerce": "mustache config/decommerce.json subgraph.template.yaml > subgraph.yaml",
     "codegen": "graph codegen --output-dir src/types/",
     "build": "graph build",
     "create-decommerce-rinkeby": "graph create test/rinkeby --node http://127.0.0.1:8020",
@@ -32,7 +33,8 @@
     "deploy-poa-xdai": "graph deploy dan13ram/poa-to-xdai-omnibridge --ipfs https://api.thegraph.com/ipfs/ --node https://api.thegraph.com/deploy/",
     "deploy-mainnet-bsc": "graph deploy dan13ram/mainnet-to-bsc-omnibridge --ipfs https://api.thegraph.com/ipfs/ --node https://api.thegraph.com/deploy/",
     "deploy-bsc-mainnet": "graph deploy dan13ram/bsc-to-mainnet-omnibridge --ipfs https://api.thegraph.com/ipfs/ --node https://api.thegraph.com/deploy/", 
-    "deploy-decommerce-rinkeby": "graph deploy test/rinkeby --ipfs http://127.0.0.1:5001 --node http://127.0.0.1:8020"
+    "deploy-decommerce-rinkeby": "graph deploy test/rinkeby --ipfs http://127.0.0.1:5001 --node http://127.0.0.1:8020",
+    "deploy-decommerce": "graph deploy test/rinkeby --ipfs http://127.0.0.1:5001 --node http://127.0.0.1:8021"
   },
   "devDependencies": {
     "mustache": "^4.2.0"
