@@ -115,6 +115,12 @@ export function updateHomeTokenInfo(
     } else if (network == 'bsc') {
       token.homeChainId = 56;
       token.homeName = tokenObject.name;
+    } else if (network == 'rinkeby') {
+      token.homeChainId = 4;
+      token.homeName = tokenObject.name;
+    } else if (network == 'decommerce') {
+      token.homeChainId = 8787;
+      token.homeName = tokenObject.name;
     }
 
     token.save();
