@@ -5,7 +5,8 @@ import {
     KOVAN_SOKOL_BRIDGE,
     nativeCurrencies,
     POA_XDAI_BRIDGE,
-    ETH_DCC_BRIDGE
+    ETH_DCC_BRIDGE,
+    RINKEBY_DCC_BRIDGE
 } from 'lib/constants';
 
 export {
@@ -52,6 +53,26 @@ const ETH_XDAI_BRIDGE_CONFIG = {
     claimDisabled: false,
     tokensClaimDisabled: [],
 };
+
+// add rinkeby-dcc bridge config
+const RINKEBY_DCC_BRIDGE_CONFIG = {
+    label: 'rinkeby⥊dcc',
+    homeChainId: 8787,
+    foreignChainId: 4,
+    enableForeignCurrencyBridge: true,
+    homeWrappedForeignCurrencyAddress: '0x81f20FD4459EAf89091f43F83923C65Ac0C36AEa'.toLowerCase(),
+    wrappedForeignCurrencyAddress: '0x6bF4A0E6d4005eA12c31fbaD8dA5432116834767'.toLowerCase(),
+    foreignMediatorAddress: '0x699402305bF0cE9b67A15eDdE3D4c2E45decC62C'.toLowerCase(),
+    homeMediatorAddress: '0xD26a5dF2F08d7B94481E2dA0D5453BBB6dfeE3A3'.toLowerCase(),
+    foreignAmbAddress: '0xb4e7267fe967682C383CF8C526165417c07e993b'.toLowerCase(),
+    homeAmbAddress: '0x3150899C78B3F73c207ac2677f4bA87354f2B7De'.toLowerCase(),
+    foreignGraphName: 'http://35.193.218.251:9000/subgraphs/name/test/rinkeby',
+    homeGraphName: 'http://35.193.218.251:9010/subgraphs/name/test/decommerce',
+    ambLiveMonitorPrefix: '',
+    claimDisabled: false,
+    tokensClaimDisabled: [],
+};
+
 
 const BSC_XDAI_BRIDGE_CONFIG = {
     label: 'bsc⥊gc',
@@ -137,7 +158,8 @@ const bridgeInfo = {
     [POA_XDAI_BRIDGE]: POA_XDAI_BRIDGE_CONFIG,
     [KOVAN_SOKOL_BRIDGE]: KOVAN_SOKOL_BRIDGE_CONFIG,
     [ETH_BSC_BRIDGE]: ETH_BSC_BRIDGE_CONFIG,
-    [ETH_DCC_BRIDGE]: ETH_DCC_BRIDGE_CONFIG
+    [ETH_DCC_BRIDGE]: ETH_DCC_BRIDGE_CONFIG, 
+    [RINKEBY_DCC_BRIDGE] : RINKEBY_DCC_BRIDGE_CONFIG
 };
 
 const getNetworkConfig = bridges => {
@@ -216,6 +238,20 @@ export const defaultTokens = {
         },
     },
     [ETH_DCC_BRIDGE]: {
+        8787: {
+            address: '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c',
+            chainId: 8787,
+            symbol: 'xTst',
+            name: 'xTest',
+        },
+        4: {
+            address: '0x6bF4A0E6d4005eA12c31fbaD8dA5432116834767',
+            chainId: 4,
+            symbol: '$T20',
+            name: 'Test20',
+        },
+    }, 
+    [RINKEBY_DCC_BRIDGE]: {
         8787: {
             address: '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c',
             chainId: 8787,

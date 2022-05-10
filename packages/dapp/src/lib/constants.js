@@ -6,6 +6,7 @@ export const POA_XDAI_BRIDGE = 'poa-xdai';
 export const KOVAN_SOKOL_BRIDGE = 'kovan-sokol';
 export const ETH_BSC_BRIDGE = 'eth-bsc';
 export const ETH_DCC_BRIDGE = 'eth-dcc';
+export const RINKEBY_DCC_BRIDGE = 'rinkeby-dcc';
 
 export const ADDRESS_ZERO = '0x0000000000000000000000000000000000000000';
 export const ETHER_CURRENCY_LOGO =

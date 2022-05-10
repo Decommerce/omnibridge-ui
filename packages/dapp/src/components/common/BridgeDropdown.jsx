@@ -53,7 +53,7 @@ export const BridgeDropdown = ({ close }) => {
           {networks[currentBridgeDirection].label}
         </Text>
       </MenuButton>
-      <MenuList border="none" boxShadow="0 0.5rem 1rem #CADAEF" zIndex="3">
+      {/* <MenuList border="none" boxShadow="0 0.5rem 1rem #CADAEF" zIndex="3">
         {Object.entries(networks).map(([key, { label }]) => (
           <MenuItem
             value={key}
@@ -67,7 +67,7 @@ export const BridgeDropdown = ({ close }) => {
             {label}
           </MenuItem>
         ))}
-      </MenuList>
+      </MenuList> */}
     </Menu>
   );
 };

@@ -204,7 +204,7 @@ export const ToToken = () => {
                 {utils.formatUnits(amount, token.decimals)}
               </Text>
             )}
-            {enableForeignCurrencyBridge &&
+            {/* {enableForeignCurrencyBridge &&
               chainId === foreignChainId &&
               fromToken.address.toLowerCase() ===
                 homeWrappedForeignCurrencyAddress && (
@@ -217,7 +217,7 @@ export const ToToken = () => {
                     onChange={changeToToken}
                   />
                 </Flex>
-              )}
+              )} */}
           </Flex>
         </Flex>
       )}

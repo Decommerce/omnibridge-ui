@@ -5,6 +5,7 @@ import {
   KOVAN_SOKOL_BRIDGE,
   POA_XDAI_BRIDGE,
 } from 'lib/networks';
+import { RINKEBY_DCC_BRIDGE } from './constants';
 
 const OWLTokenOverride = {
   100: {
@@ -171,6 +172,23 @@ const STAKETokenOverridePOAxDAI = {
   },
 };
 
+// add token override 
+
+const DECOMTokenOverrideRinkebyDcc = {
+  8787: {
+    mediator: '0xD26a5dF2F08d7B94481E2dA0D5453BBB6dfeE3A3',
+    from: '0x81f20FD4459EAf89091f43F83923C65Ac0C36AEa',
+    to: '0x6bF4A0E6d4005eA12c31fbaD8dA5432116834767',
+    mode: 'erc677',
+  }, 
+  4: {
+    mediator: '0x699402305bF0cE9b67A15eDdE3D4c2E45decC62C',
+    from: '0x6bF4A0E6d4005eA12c31fbaD8dA5432116834767',
+    to: '0x81f20FD4459EAf89091f43F83923C65Ac0C36AEa',
+    mode: 'dedicated-erc20',
+  }
+};
+
 const SWASHTokenOverride = {
   100: {
     mediator: '0x68a64df7458a8eb2677991e657508fe00205332d',
@@ -242,12 +260,19 @@ const POA_XDAI_OVERRIDES = {
 
 const ETH_BSC_OVERRIDES = {};
 
+// add override for DCC
+const RINKEBY_DCC_OVERRIDES = {
+  ['0x81f20FD4459EAf89091f43F83923C65Ac0C36AEa'.toLowerCase()]: DECOMTokenOverrideRinkebyDcc,
+  ['0x6bF4A0E6d4005eA12c31fbaD8dA5432116834767'.toLowerCase()]: DECOMTokenOverrideRinkebyDcc
+};
+
 const OVERRIDES = {
   [ETH_XDAI_BRIDGE]: ETH_XDAI_OVERRIDES,
   [KOVAN_SOKOL_BRIDGE]: KOVAN_SOKOL_OVERRIDES,
   [BSC_XDAI_BRIDGE]: BSC_XDAI_OVERRIDES,
   [POA_XDAI_BRIDGE]: POA_XDAI_OVERRIDES,
   [ETH_BSC_BRIDGE]: ETH_BSC_OVERRIDES,
+  [RINKEBY_DCC_BRIDGE] : RINKEBY_DCC_OVERRIDES
 };
 
 export const isOverridden = (bridgeDirection, token) => {

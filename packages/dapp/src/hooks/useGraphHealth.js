@@ -33,32 +33,35 @@ export const useGraphHealth = (
       [homeChainId]: homeBlockNumber,
       [foreignChainId]: foreignBlockNumber,
     } = getRPCHealth();
-    const { [homeGraphName]: homeHealth, [foreignGraphName]: foreignHealth } =
-      getGraphHealth();
 
-    const home =
-      homeHealth && homeBlockNumber !== undefined
-        ? homeHealth.isReachable &&
-          !homeHealth.isFailed &&
-          homeHealth.isSynced &&
-          Math.abs(homeHealth.latestBlockNumber - homeBlockNumber) <
-            THRESHOLD_BLOCKS &&
-          Math.abs(homeHealth.chainHeadBlockNumber - homeBlockNumber) <
-            THRESHOLD_BLOCKS
-        : true;
+    // ignore graph health
+    // const { [homeGraphName]: homeHealth, [foreignGraphName]: foreignHealth } =
+    //   getGraphHealth();
 
-    const foreign =
-      foreignHealth && foreignBlockNumber !== undefined
-        ? foreignHealth.isReachable &&
-          !foreignHealth.isFailed &&
-          foreignHealth.isSynced &&
-          Math.abs(foreignHealth.latestBlockNumber - foreignBlockNumber) <
-            THRESHOLD_BLOCKS &&
-          Math.abs(foreignHealth.chainHeadBlockNumber - foreignBlockNumber) <
-            THRESHOLD_BLOCKS
-        : true;
+    // const home =
+    //   homeHealth && homeBlockNumber !== undefined
+    //     ? homeHealth.isReachable &&
+    //       !homeHealth.isFailed &&
+    //       homeHealth.isSynced &&
+    //       Math.abs(homeHealth.latestBlockNumber - homeBlockNumber) <
+    //         THRESHOLD_BLOCKS &&
+    //       Math.abs(homeHealth.chainHeadBlockNumber - homeBlockNumber) <
+    //         THRESHOLD_BLOCKS
+    //     : true;
 
-    return [home, foreign];
+    // const foreign =
+    //   foreignHealth && foreignBlockNumber !== undefined
+    //     ? foreignHealth.isReachable &&
+    //       !foreignHealth.isFailed &&
+    //       foreignHealth.isSynced &&
+    //       Math.abs(foreignHealth.latestBlockNumber - foreignBlockNumber) <
+    //         THRESHOLD_BLOCKS &&
+    //       Math.abs(foreignHealth.chainHeadBlockNumber - foreignBlockNumber) <
+    //         THRESHOLD_BLOCKS
+    //     : true;
+
+    // return [home, foreign];
+    return [true, true];
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
     refreshCount,
