@@ -207,11 +207,11 @@ export function getMediatedTokens(): TypedMap<Address, Address> {
 
   //for decommerce and rinkeby
   mediatedTokens.set(
-    Address.fromString('0xD26a5dF2F08d7B94481E2dA0D5453BBB6dfeE3A3'), 
-    Address.fromString('0x81f20FD4459EAf89091f43F83923C65Ac0C36AEa')
+    Address.fromString('0xe8bfd2447b26232eb6f53794d2d920233a87e0d6'), 
+    Address.fromString('0x2B3f3b86D238eFd9672331eff6aC19bCf1C6fD60')
   );
   mediatedTokens.set(
-    Address.fromString('0x699402305bF0cE9b67A15eDdE3D4c2E45decC62C'), 
+    Address.fromString('0x5b1F5D4fEd4A04bA9EDc43Fc8854f604559cB683'), 
     Address.fromString('0x6bF4A0E6d4005eA12c31fbaD8dA5432116834767')
   )
 
