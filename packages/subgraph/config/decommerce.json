@@ -6,7 +6,7 @@
     "bridges": [
       {
         "name": "$T20",
-        "address": "0x2B3f3b86D238eFd9672331eff6aC19bCf1C6fD60",
+        "address": "0xe8bfd2447b26232eb6f53794d2d920233a87e0d6",
         "startBlock": "300"
       }
     ]
