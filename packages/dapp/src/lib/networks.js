@@ -60,11 +60,11 @@ const RINKEBY_DCC_BRIDGE_CONFIG = {
     homeChainId: 8787,
     foreignChainId: 4,
     enableForeignCurrencyBridge: true,
-    homeWrappedForeignCurrencyAddress: '0x81f20FD4459EAf89091f43F83923C65Ac0C36AEa'.toLowerCase(),
+    homeWrappedForeignCurrencyAddress: '0x2B3f3b86D238eFd9672331eff6aC19bCf1C6fD60'.toLowerCase(),
     wrappedForeignCurrencyAddress: '0x6bF4A0E6d4005eA12c31fbaD8dA5432116834767'.toLowerCase(),
-    foreignMediatorAddress: '0x699402305bF0cE9b67A15eDdE3D4c2E45decC62C'.toLowerCase(),
-    homeMediatorAddress: '0xD26a5dF2F08d7B94481E2dA0D5453BBB6dfeE3A3'.toLowerCase(),
-    foreignAmbAddress: '0xb4e7267fe967682C383CF8C526165417c07e993b'.toLowerCase(),
+    foreignMediatorAddress: '0x5b1F5D4fEd4A04bA9EDc43Fc8854f604559cB683'.toLowerCase(),
+    homeMediatorAddress: '0xe8bfd2447b26232eb6f53794d2d920233a87e0d6'.toLowerCase(),
+    foreignAmbAddress: '0xFa19212168114519688fcFC69a1A277505ee2CD6'.toLowerCase(),
     homeAmbAddress: '0x3150899C78B3F73c207ac2677f4bA87354f2B7De'.toLowerCase(),
     foreignGraphName: 'http://35.193.218.251:9000/subgraphs/name/test/rinkeby',
     homeGraphName: 'http://35.193.218.251:9010/subgraphs/name/test/decommerce',
@@ -158,8 +158,8 @@ const bridgeInfo = {
     [POA_XDAI_BRIDGE]: POA_XDAI_BRIDGE_CONFIG,
     [KOVAN_SOKOL_BRIDGE]: KOVAN_SOKOL_BRIDGE_CONFIG,
     [ETH_BSC_BRIDGE]: ETH_BSC_BRIDGE_CONFIG,
-    [ETH_DCC_BRIDGE]: ETH_DCC_BRIDGE_CONFIG, 
-    [RINKEBY_DCC_BRIDGE] : RINKEBY_DCC_BRIDGE_CONFIG
+    [ETH_DCC_BRIDGE]: ETH_DCC_BRIDGE_CONFIG,
+    [RINKEBY_DCC_BRIDGE]: RINKEBY_DCC_BRIDGE_CONFIG
 };
 
 const getNetworkConfig = bridges => {
@@ -250,10 +250,10 @@ export const defaultTokens = {
             symbol: '$T20',
             name: 'Test20',
         },
-    }, 
+    },
     [RINKEBY_DCC_BRIDGE]: {
         8787: {
-            address: '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c',
+            address: '0x2B3f3b86D238eFd9672331eff6aC19bCf1C6fD60',
             chainId: 8787,
             symbol: 'xTst',
             name: 'xTest',
