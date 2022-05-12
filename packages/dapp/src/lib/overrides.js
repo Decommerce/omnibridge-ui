@@ -176,15 +176,15 @@ const STAKETokenOverridePOAxDAI = {
 
 const DECOMTokenOverrideRinkebyDcc = {
   8787: {
-    mediator: '0xD26a5dF2F08d7B94481E2dA0D5453BBB6dfeE3A3',
-    from: '0x81f20FD4459EAf89091f43F83923C65Ac0C36AEa',
+    mediator: '0xe8bfd2447b26232eb6f53794d2d920233a87e0d6',
+    from: '0x2B3f3b86D238eFd9672331eff6aC19bCf1C6fD60',
     to: '0x6bF4A0E6d4005eA12c31fbaD8dA5432116834767',
     mode: 'erc677',
   }, 
   4: {
-    mediator: '0x699402305bF0cE9b67A15eDdE3D4c2E45decC62C',
+    mediator: '0x5b1F5D4fEd4A04bA9EDc43Fc8854f604559cB683',
     from: '0x6bF4A0E6d4005eA12c31fbaD8dA5432116834767',
-    to: '0x81f20FD4459EAf89091f43F83923C65Ac0C36AEa',
+    to: '0x2B3f3b86D238eFd9672331eff6aC19bCf1C6fD60',
     mode: 'dedicated-erc20',
   }
 };
@@ -262,7 +262,7 @@ const ETH_BSC_OVERRIDES = {};
 
 // add override for DCC
 const RINKEBY_DCC_OVERRIDES = {
-  ['0x81f20FD4459EAf89091f43F83923C65Ac0C36AEa'.toLowerCase()]: DECOMTokenOverrideRinkebyDcc,
+  ['0x2B3f3b86D238eFd9672331eff6aC19bCf1C6fD60'.toLowerCase()]: DECOMTokenOverrideRinkebyDcc,
   ['0x6bF4A0E6d4005eA12c31fbaD8dA5432116834767'.toLowerCase()]: DECOMTokenOverrideRinkebyDcc
 };
 
