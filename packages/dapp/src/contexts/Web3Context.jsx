@@ -44,6 +44,8 @@ const rpc = {
   100: getRPCUrl(100),
   77: getRPCUrl(77),
   56: getRPCUrl(56),
+  8787 : getRPCUrl(8787),
+  4 : getRPCUrl(4)
 };
 
 const connector = async (ProviderPackage, options) => {
