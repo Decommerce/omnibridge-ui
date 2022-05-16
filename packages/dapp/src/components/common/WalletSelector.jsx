@@ -55,7 +55,7 @@ export const WalletSelector = ({ close }) => {
     <Flex>
       <Popover placement={placement}>
         <PopoverTrigger>
-          <Button colorScheme={isInvalid ? 'red' : 'blue'} px={3}>
+          <Button colorScheme={isInvalid ? 'red' : 'blue'} px={3} style={{ width : "100%"}}>
             <Davatar
               address={account}
               size={20}
