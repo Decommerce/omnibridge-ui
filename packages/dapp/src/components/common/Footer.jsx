@@ -21,7 +21,7 @@ export const Footer = () => {
       w="100%"
       color="grey"
     >
-      {!smallScreen && (
+      {/* {!smallScreen && (
         <Link to="/" display={{ base: 'none', sm: 'block' }}>
           <Flex
             justify="space-around"
@@ -32,9 +32,9 @@ export const Footer = () => {
             <OmniBridgeIcon w={6} />
           </Flex>
         </Link>
-      )}
+      )} */}
       <HStack spacing={4}>
-        <Box _hover={{ color: 'blue.500' }} transition="0.25s">
+        {/* <Box _hover={{ color: 'blue.500' }} transition="0.25s">
           <a
             href="https://gnosischain.com"
             rel="noreferrer noopener"
@@ -84,7 +84,7 @@ export const Footer = () => {
             <Text>Built by</Text>
             <RaidGuildIcon boxSize={16} ml={2} />
           </Flex>
-        </a>
+        </a> */}
       </HStack>
     </Flex>
   );
