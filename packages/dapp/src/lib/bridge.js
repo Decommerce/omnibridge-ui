@@ -34,6 +34,7 @@ const fetchToTokenDetails = async (bridgeDirection, fromToken, toChainId) => {
       chainId: fromChainId,
     })
   ) {
+    console.log('before to  token details');
     return fetchTokenDetails(bridgeDirection, {
       address: getOverriddenToToken(bridgeDirection, {
         address: fromAddress,
@@ -118,6 +119,7 @@ export const fetchToToken = async (bridgeDirection, fromToken, toChainId) => {
     fromToken,
     toChainId,
   );
+  console.info('toToken', toToken);
   return toToken;
 };
 

@@ -5,7 +5,7 @@ import {
   KOVAN_SOKOL_BRIDGE,
   POA_XDAI_BRIDGE,
 } from 'lib/networks';
-import { RINKEBY_DCC_BRIDGE } from './constants';
+import { ADDRESS_ZERO, RINKEBY_DCC_BRIDGE } from './constants';
 
 const OWLTokenOverride = {
   100: {
@@ -176,15 +176,15 @@ const STAKETokenOverridePOAxDAI = {
 
 const DECOMTokenOverrideRinkebyDcc = {
   8787: {
-    mediator: '0xe8bfd2447b26232eb6f53794d2d920233a87e0d6',
-    from: '0x2B3f3b86D238eFd9672331eff6aC19bCf1C6fD60',
-    to: '0x6bF4A0E6d4005eA12c31fbaD8dA5432116834767',
-    mode: 'erc677',
+    mediator: '0xc24d67928ab6d17ca627dfD19F506581c35703Dd',
+    from: ADDRESS_ZERO,
+    to: '0x49790bbD4551340AD43B1bc7C45F1291BBE99595',
+    mode: 'NATIVE',
   }, 
   4: {
-    mediator: '0x5b1F5D4fEd4A04bA9EDc43Fc8854f604559cB683',
-    from: '0x6bF4A0E6d4005eA12c31fbaD8dA5432116834767',
-    to: '0x2B3f3b86D238eFd9672331eff6aC19bCf1C6fD60',
+    mediator: '0xf00C18a6716448e447B986c27FD0a715bbEdea4C',
+    from: '0x49790bbD4551340AD43B1bc7C45F1291BBE99595',
+    to: ADDRESS_ZERO,
     mode: 'dedicated-erc20',
   }
 };
@@ -262,8 +262,8 @@ const ETH_BSC_OVERRIDES = {};
 
 // add override for DCC
 const RINKEBY_DCC_OVERRIDES = {
-  ['0x2B3f3b86D238eFd9672331eff6aC19bCf1C6fD60'.toLowerCase()]: DECOMTokenOverrideRinkebyDcc,
-  ['0x6bF4A0E6d4005eA12c31fbaD8dA5432116834767'.toLowerCase()]: DECOMTokenOverrideRinkebyDcc
+  ['0x49790bbD4551340AD43B1bc7C45F1291BBE99595'.toLowerCase()]: DECOMTokenOverrideRinkebyDcc,
+  [ADDRESS_ZERO.toLowerCase()]: DECOMTokenOverrideRinkebyDcc
 };
 
 const OVERRIDES = {

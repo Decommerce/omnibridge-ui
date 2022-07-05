@@ -1,12 +1,16 @@
 import { BigNumber, Contract, utils } from 'ethers';
 
-import { ADDRESS_ZERO } from './constants';
+import { ADDRESS_ZERO, nativeCurrencies } from './constants';
 import {
   getMediatorAddress,
   getMediatorAddressWithoutOverride,
   logError,
 } from './helpers';
-import { getOverriddenMode, isOverridden } from './overrides';
+import {
+  getOverriddenMediator,
+  getOverriddenMode,
+  isOverridden,
+} from './overrides';
 import { getEthersProvider } from './providers';
 
 export const fetchAllowance = async (
@@ -137,13 +141,28 @@ const fetchTokenDetailsFromContract = async token => {
 
 export const fetchTokenDetails = async (bridgeDirection, token) => {
   const mediatorAddress = getMediatorAddress(bridgeDirection, token);
+  console.log(
+    'token details(token, direction, mediator) ',
+    token,
+    bridgeDirection,
+    mediatorAddress,
+  );
+  if (token?.address === ADDRESS_ZERO) {
+    const { name, symbol, decimals, mode } = nativeCurrencies[token.chainId];
+    return {
+      ...token,
+      name: renamexDaiTokensAsGnosis(name),
+      decimals,
+      mode,
+      mediator: mediatorAddress,
+    };
+  }
   const [{ name, symbol, decimals }, mode] = await Promise.all([
     fetchTokenDetailsFromContract(token),
     fetchMode(bridgeDirection, token),
   ]);
 
   // replace xDai in token names with GC
-
   return {
     ...token,
     name: renamexDaiTokensAsGnosis(name),

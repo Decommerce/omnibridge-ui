@@ -238,31 +238,26 @@ export const defaultTokens = {
         },
     },
     [ETH_DCC_BRIDGE]: {
-        8787: {
-            address: '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c',
-            chainId: 8787,
-            symbol: 'xTst',
-            name: 'xTest',
-        },
+        8787: nativeCurrencies[8787],
         4: {
-            address: '0x6bF4A0E6d4005eA12c31fbaD8dA5432116834767',
+            address: '0x49790bbD4551340AD43B1bc7C45F1291BBE99595',
             chainId: 4,
-            symbol: '$T20',
-            name: 'Test20',
+            symbol: '$DECOM',
+            name: 'DECOM',
         },
     },
     [RINKEBY_DCC_BRIDGE]: {
         8787: {
-            address: '0x2B3f3b86D238eFd9672331eff6aC19bCf1C6fD60',
+            address: '0x0000000000000000000000000000000000000000',
             chainId: 8787,
-            symbol: 'xTst',
-            name: 'xTest',
+            symbol: '$DECOM',
+            name: 'DECOM',
         },
         4: {
-            address: '0x6bF4A0E6d4005eA12c31fbaD8dA5432116834767',
+            address: '0x49790bbD4551340AD43B1bc7C45F1291BBE99595',
             chainId: 4,
-            symbol: '$T20',
-            name: 'Test20',
+            symbol: '$DECOM',
+            name: 'DECOM',
         },
     }
 };

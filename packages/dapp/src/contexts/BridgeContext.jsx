@@ -135,6 +135,7 @@ export const BridgeProvider = ({ children }) => {
 
   const setToken = useCallback(
     async (tokenWithoutMode, isQueryToken = false) => {
+      console.info('tokeWithoutMode', tokenWithoutMode)
       if (!tokenWithoutMode) return false;
       try {
         const [token, gotToToken] = await Promise.all([
@@ -153,6 +154,7 @@ export const BridgeProvider = ({ children }) => {
             getBridgeChainId(tokenWithoutMode.chainId),
           ),
         ]);
+        console.log('set token', token, gotToToken);
         setTokens({ fromToken: token, toToken: { ...token, ...gotToToken } });
         return true;
       } catch (tokenDetailsError) {

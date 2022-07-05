@@ -146,7 +146,7 @@ export const logError = (...args) => {
 export const logDebug = (...args) => {
   if (process.env.REACT_APP_DEBUG_LOGS === 'true') {
     // eslint-disable-next-line no-console
-    console.log(...args);
+    // console.log(...args);
   }
 };
 

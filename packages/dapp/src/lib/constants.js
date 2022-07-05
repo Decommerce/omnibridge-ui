@@ -60,7 +60,7 @@ export const nativeCurrencies = {
         logoURI: ETHER_CURRENCY_LOGO,
         address: ADDRESS_ZERO,
         name: 'Decommerce Coin',
-        symbol: 'DCC',
+        symbol: '$DECOM',
         mode: 'NATIVE',
     },
     42: {
