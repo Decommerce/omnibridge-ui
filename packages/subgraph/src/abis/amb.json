@@ -2,8 +2,16 @@
   {
     "anonymous": false,
     "inputs": [
-      { "indexed": true, "name": "messageId", "type": "bytes32" },
-      { "indexed": false, "name": "encodedData", "type": "bytes" }
+      {
+        "indexed": false,
+        "name": "recipient",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "name": "value",
+        "type": "uint256"
+      }
     ],
     "name": "UserRequestForAffirmation",
     "type": "event"
@@ -11,8 +19,16 @@
   {
     "anonymous": false,
     "inputs": [
-      { "indexed": true, "name": "messageId", "type": "bytes32" },
-      { "indexed": false, "name": "encodedData", "type": "bytes" }
+      {
+        "indexed": false,
+        "name": "recipient",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "name": "value",
+        "type": "uint256"
+      }
     ],
     "name": "UserRequestForSignature",
     "type": "event"
@@ -20,10 +36,21 @@
   {
     "anonymous": false,
     "inputs": [
-      { "indexed": true, "name": "sender", "type": "address" },
-      { "indexed": true, "name": "executor", "type": "address" },
-      { "indexed": true, "name": "messageId", "type": "bytes32" },
-      { "indexed": false, "name": "status", "type": "bool" }
+      {
+        "indexed": false,
+        "name": "recipient",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "name": "value",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "name": "transactionHash",
+        "type": "bytes32"
+      }
     ],
     "name": "RelayedMessage",
     "type": "event"
@@ -31,10 +58,21 @@
   {
     "anonymous": false,
     "inputs": [
-      { "indexed": true, "name": "sender", "type": "address" },
-      { "indexed": true, "name": "executor", "type": "address" },
-      { "indexed": true, "name": "messageId", "type": "bytes32" },
-      { "indexed": false, "name": "status", "type": "bool" }
+      {
+        "indexed": false,
+        "name": "recipient",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "name": "value",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "name": "transactionHash",
+        "type": "bytes32"
+      }
     ],
     "name": "AffirmationCompleted",
     "type": "event"
