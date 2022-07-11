@@ -1,0 +1,37 @@
+specVersion: 0.0.2
+description: Subgraph that indexes the omnibridge transfers
+repository: https://github.com/raid-guild/xdai-omnibridge
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: AMB
+    # prettier-ignore
+    network: decommerce
+    source:
+      abi: AMB
+      address: '0xc24d67928ab6d17ca627dfD19F506581c35703Dd'
+      # prettier-ignore
+      startBlock: 3170
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      abis:
+        - name: AMB
+          file: ./src/abis/amb.json
+      entities:
+        - UserRequest
+      eventHandlers:
+        - event: UserRequestForSignature(address,uint256)
+          handler: handleUserRequestForSignature
+        - event: UserRequestForAffirmation(address,uint256)
+          handler: handleUserRequestForAffirmation
+        - event: RelayedMessage(address,uint256,bytes32)
+          handler: handleRelayedMessage
+        - event: AffirmationCompleted(address,uint256,bytes32)
+          handler: handleAffirmationCompleted
+        - event: CollectedSignatures(address,bytes32,uint256)
+          handler: handleCollectedSignatures
+      file: ./src/mappings/amb.ts
+      language: wasm/assemblyscript
+  

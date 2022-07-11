@@ -39,7 +39,9 @@ subgraph.yaml
 
 # package-lock 
 package-lock.json
+yarn.lock
 
 # yarn
 .yarn*
 .yarnrc
+

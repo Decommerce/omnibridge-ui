@@ -53,13 +53,13 @@ dataSources:
       entities:
         - UserRequest
       eventHandlers:
-        - event: UserRequestForSignature(indexed bytes32,bytes)
+        - event: UserRequestForSignature(address,uint256)
           handler: handleUserRequestForSignature
-        - event: UserRequestForAffirmation(indexed bytes32,bytes)
+        - event: UserRequestForAffirmation(address,uint256)
           handler: handleUserRequestForAffirmation
-        - event: RelayedMessage(indexed address,indexed address,indexed bytes32,bool)
+        - event: RelayedMessage(address,uint256,bytes32)
           handler: handleRelayedMessage
-        - event: AffirmationCompleted(indexed address,indexed address,indexed bytes32,bool)
+        - event: AffirmationCompleted(address,uint256,bytes32)
           handler: handleAffirmationCompleted
         - event: CollectedSignatures(address,bytes32,uint256)
           handler: handleCollectedSignatures

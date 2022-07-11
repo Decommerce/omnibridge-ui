@@ -1,119 +1,158 @@
-import { BigInt, Bytes, log, crypto } from '@graphprotocol/graph-ts';
+import { BigInt, Bytes, log, crypto, ByteArray } from '@graphprotocol/graph-ts';
 import {
-  UserRequestForAffirmation,
-  UserRequestForSignature,
-  RelayedMessage,
-  AffirmationCompleted,
-  CollectedSignatures,
-  AMB,
+    UserRequestForAffirmation,
+    UserRequestForSignature,
+    RelayedMessage,
+    AffirmationCompleted,
+    CollectedSignatures,
+    AMB,
 } from '../types/AMB/AMB';
 
 import { UserRequest, Execution, Message } from '../types/schema';
-
+// const { createMessage, parseMessage } = require('./message');
 import { decodeRecipient } from './helpers';
+import { MessageDetails, parseMessage } from './message';
 
 export function handleUserRequestForAffirmation(
-  event: UserRequestForAffirmation,
+    event: UserRequestForAffirmation,
 ): void {
-  log.debug('Parsing UserRequestForAffirmation', []);
-  let txHash = event.transaction.hash;
-  let request = UserRequest.load(txHash.toHexString());
-  if (request == null) {
-    request = new UserRequest(txHash.toHexString());
-  }
-  let message = new Message(
-    crypto.keccak256(event.params.encodedData).toHexString(),
-  );
-  message.msgId = event.params.messageId;
-  message.txHash = txHash;
-  message.save();
-  request.txHash = txHash;
-  request.timestamp = event.block.timestamp;
-  request.messageId = event.params.messageId;
-  request.message = message.id;
-  request.encodedData = event.params.encodedData;
-  request.recipient = decodeRecipient(event.params.encodedData);
-  request.save();
+    log.debug('Parsing UserRequestForAffirmation', []);
+    let txHash = event.transaction.hash;
+    let request = UserRequest.load(txHash.toHexString());
+    if (request == null) {
+        request = new UserRequest(txHash.toHexString());
+    }
+
+    // const messageString  = createMessage({
+    //     recipient: event.params.recipient.toHexString,
+    //     value: event.params.value,
+    //     transactionHash: event.transaction.hash.toHexString,
+    //     bridgeAddress: event.address.toHexString,
+    // });
+
+    // log.debug('UserRequestForAffirmation message string {}', [messageString]);
+    // let msgHash = crypto.keccak256(ByteArray.fromHexString(messageString));
+    let message = new Message(
+      txHash.toHexString(),
+    );
+    // message.msgId = msgHash;
+    message.txHash = txHash;
+    message.save();
+    request.txHash = txHash;
+    request.timestamp = event.block.timestamp;
+    request.amount = event.params.value;
+    // request.messageId = msgHash;
+    // request.message = message.id;
+    request.messageId = txHash;
+    request.message = message.id;
+    // request.encodedData = event.params.encodedData;
+    // request.recipient = decodeRecipient(event.params.encodedData);
+    request.recipient = event.params.recipient;
+    request.messageId = txHash;
+    request.decimals = 18;
+    request.save();
 }
 
 export function handleUserRequestForSignature(
-  event: UserRequestForSignature,
+    event: UserRequestForSignature,
 ): void {
-  log.debug('Parsing UserRequestForSignature', []);
-  let txHash = event.transaction.hash;
-  let request = UserRequest.load(txHash.toHexString());
-  if (request == null) {
-    request = new UserRequest(txHash.toHexString());
-  }
-  let message = new Message(
-    crypto.keccak256(event.params.encodedData).toHexString(),
-  );
-  message.msgId = event.params.messageId;
-  message.txHash = txHash;
-  message.save();
-  request.txHash = txHash;
-  request.timestamp = event.block.timestamp;
-  request.messageId = event.params.messageId;
-  request.message = message.id;
-  request.encodedData = event.params.encodedData;
-  request.recipient = decodeRecipient(event.params.encodedData);
-  request.save();
+    log.debug('Parsing UserRequestForSignature', []);
+    let txHash = event.transaction.hash;
+    let request = UserRequest.load(txHash.toHexString());
+    if (request == null) {
+        request = new UserRequest(txHash.toHexString());
+    }
+
+    // const messageString  = createMessage({
+    //     recipient: event.params.recipient.toHexString(),
+    //     value: event.params.value,
+    //     transactionHash: event.transaction.hash.toHexString(),
+    //     bridgeAddress: event.address.toHexString(),
+    // });
+
+    // log.debug('UserRequestForSignature message string {}', [messageString]);
+    // let msgHash = crypto.keccak256(ByteArray.fromHexString(messageString));
+    let message = new Message(
+      txHash.toHexString(),
+    );
+    // message.msgId = msgHash;
+    message.txHash = txHash;
+    message.save();
+    request.txHash = txHash;
+    request.timestamp = event.block.timestamp;
+    request.messageId = txHash;
+    request.message = message.id;
+    // request.encodedData = event.params.encodedData;
+    request.recipient = event.params.recipient;
+    request.amount = event.params.value;
+    request.decimals = 18;
+    request.save();
 }
 
 export function handleRelayedMessage(event: RelayedMessage): void {
-  log.debug('Parsing RelayedMessage', []);
-  let txHash = event.transaction.hash;
-  let execution = Execution.load(txHash.toHexString());
-  if (execution == null) {
-    execution = new Execution(txHash.toHexString());
-  }
-  execution.txHash = txHash;
-  execution.timestamp = event.block.timestamp;
-  execution.sender = event.params.sender;
-  execution.executor = event.params.executor;
-  execution.messageId = event.params.messageId;
-  execution.status = event.params.status;
-  execution.save();
+    log.debug('Parsing RelayedMessage', []);
+    let txHash = event.transaction.hash;
+    let execution = Execution.load(txHash.toHexString());
+    if (execution == null) {
+        execution = new Execution(txHash.toHexString());
+    }
+    execution.txHash = txHash;
+    execution.timestamp = event.block.timestamp;
+    // execution.sender = event.params.sender;
+    // execution.executor = event.params.executor;
+    execution.messageId = event.params.transactionHash;
+    // execution.status = event.params.status;
+    execution.status = true;
+    execution.save();
 }
 
 export function handleAffirmationCompleted(event: AffirmationCompleted): void {
-  log.debug('Parsing AffirmationCompleted', []);
-  let txHash = event.transaction.hash;
-  let execution = Execution.load(txHash.toHexString());
-  if (execution == null) {
-    execution = new Execution(txHash.toHexString());
-  }
-  execution.txHash = txHash;
-  execution.timestamp = event.block.timestamp;
-  execution.sender = event.params.sender;
-  execution.executor = event.params.executor;
-  execution.messageId = event.params.messageId;
-  execution.status = event.params.status;
-  execution.save();
+    log.debug('Parsing AffirmationCompleted', []);
+    let txHash = event.transaction.hash;
+    let execution = Execution.load(txHash.toHexString());
+    if (execution == null) {
+        execution = new Execution(txHash.toHexString());
+    }
+    execution.txHash = txHash;
+    execution.timestamp = event.block.timestamp;
+    // execution.sender = event.params.sender;
+    // execution.executor = event.params.executor;
+    // execution.messageId = event.params.messageId;
+    execution.messageId = event.params.transactionHash;
+    execution.status = true;
+    execution.save();
 }
 
 export function handleCollectedSignatures(event: CollectedSignatures): void {
-  log.debug('Parsing CollectedSignatures', []);
-  let ambInstance = AMB.bind(event.address);
-  let message = ambInstance.try_message(event.params.messageHash);
-  if (!message.reverted) {
-    let msg = Message.load(crypto.keccak256(message.value).toHexString());
-    if (msg != null) {
-      msg.msgData = message.value;
-      msg.msgHash = event.params.messageHash;
-      let signatures = new Array<Bytes>();
-      for (
-        let i = BigInt.fromI32(0);
-        i.lt(event.params.NumberOfCollectedSignatures);
-        i = i.plus(BigInt.fromI32(1))
-      ) {
-        let signature = ambInstance.try_signature(event.params.messageHash, i);
-        if (!signature.reverted) {
-          signatures.push(signature.value);
+    log.debug('Parsing CollectedSignatures', []);
+    let ambInstance = AMB.bind(event.address);
+    let message = ambInstance.try_message(event.params.messageHash);
+    if (!message.reverted) {
+        let messageDetails = parseMessage(message.value.toHexString());
+        // const recipient = messageDetails.recipient;
+        // const amount = messageDetails.amount;
+        // const txHash = messageDetails.txHash;
+        // log.debug('Parsing CollectedSignatures: recipient:{}, value: {}, transactionHash:{}', [recipient, amount, txHash]);
+        let msg = Message.load(messageDetails.txHash);
+        if (msg != null) {
+            msg.msgData = message.value;
+            msg.msgHash = event.params.messageHash;
+            let signatures = new Array<Bytes>();
+            for (
+                let i = BigInt.fromI32(0);
+                i.lt(event.params.NumberOfCollectedSignatures);
+                i = i.plus(BigInt.fromI32(1))
+            ) {
+                let signature = ambInstance.try_signature(
+                    event.params.messageHash,
+                    i,
+                );
+                if (!signature.reverted) {
+                    signatures.push(signature.value);
+                }
+            }
+            msg.signatures = signatures;
+            msg.save();
         }
-      }
-      msg.signatures = signatures;
-      msg.save();
     }
-  }
 }
