@@ -10,8 +10,8 @@ import {
 
 import { UserRequest, Execution, Message } from '../types/schema';
 // const { createMessage, parseMessage } = require('./message');
-import { decodeRecipient } from './helpers';
-import { MessageDetails, parseMessage } from './message';
+// import { decodeRecipient } from './helpers';
+import { parseMessage } from './message';
 
 export function handleUserRequestForAffirmation(
     event: UserRequestForAffirmation,
