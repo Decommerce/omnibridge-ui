@@ -32,7 +32,7 @@ const ETH_DCC_BRIDGE_CONFIG = {
     foreignGraphName: 'http://35.193.218.251:9000/subgraphs/name/test/rinkeby',
     homeGraphName: 'http://35.193.218.251:9010/subgraphs/name/test/decommerce',
     ambLiveMonitorPrefix: '',
-    claimDisabled: false,
+    claimDisabled: true,
     tokensClaimDisabled: [],
 };
 
@@ -50,7 +50,7 @@ const ETH_XDAI_BRIDGE_CONFIG = {
     foreignGraphName: 'raid-guild/mainnet-omnibridge',
     homeGraphName: 'raid-guild/xdai-omnibridge',
     ambLiveMonitorPrefix: 'https://alm-xdai.herokuapp.com',
-    claimDisabled: false,
+    claimDisabled: true,
     tokensClaimDisabled: [],
 };
 
@@ -69,7 +69,7 @@ const RINKEBY_DCC_BRIDGE_CONFIG = {
     foreignGraphName: 'http://35.193.218.251:9000/subgraphs/name/test/rinkeby',
     homeGraphName: 'http://35.193.218.251:9010/subgraphs/name/test/decommerce',
     ambLiveMonitorPrefix: '',
-    claimDisabled: false,
+    claimDisabled: true,
     tokensClaimDisabled: [],
 };
 

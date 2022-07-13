@@ -57,6 +57,10 @@ export const useTransactionStatus = setMessage => {
       const numConfirmations = txReceipt ? txReceipt.confirmations : 0;
       const enoughConfirmations = numConfirmations >= totalConfirms;
 
+      console.log("totalConfirms ",totalConfirms)
+      console.log("numConfirmations ",numConfirmations)
+      console.log("enoughConfirmations ",enoughConfirmations)
+      console.log("needsClaiming ",needsClaiming)
       if (txReceipt) {
         setConfirmations(numConfirmations);
         if (enoughConfirmations) {

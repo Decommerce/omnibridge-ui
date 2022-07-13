@@ -63,6 +63,7 @@ export const getEthersProvider = async chainId => {
   if (provider?.connection?.url) {
     sessionStorage.setItem(sessionStorageKey, provider.connection.url);
   }
+  console.log("provider ",provider)
   return provider ?? null;
 };
 
