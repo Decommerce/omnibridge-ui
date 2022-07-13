@@ -1,14 +1,14 @@
 type UserRequest @entity {
   id: ID!
-  user: Bytes
-  token: Bytes
+  # user: Bytes
+  # token: Bytes
   decimals: Int
-  symbol: String
+  # symbol: String
   amount: BigInt
   timestamp: BigInt!
   txHash: Bytes!
   messageId: Bytes
-  encodedData: Bytes
+  # encodedData: Bytes
   message: Message
   recipient: Bytes
 }
@@ -16,7 +16,7 @@ type UserRequest @entity {
 type Execution @entity {
   id: ID!
   user: Bytes
-  token: Bytes
+  # token: Bytes
   amount: BigInt
   sender: Bytes
   executor: Bytes
