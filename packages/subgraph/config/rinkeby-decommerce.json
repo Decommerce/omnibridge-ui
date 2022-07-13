@@ -1,13 +1,5 @@
 {
   "network": "rinkeby",
-  "startBlock": "10662554",
-  "amb": "0xFa19212168114519688fcFC69a1A277505ee2CD6",
-  "omnibridge": "0x0000000000000000000000000000000000000000",
-  "bridges": [
-    {
-      "name": "$T20",
-      "address": "0x5b1F5D4fEd4A04bA9EDc43Fc8854f604559cB683",
-      "startBlock": "10662554"
-    }
-  ]
+  "startBlock": "10925859",
+  "amb": "0xf00C18a6716448e447B986c27FD0a715bbEdea4C"
 }
