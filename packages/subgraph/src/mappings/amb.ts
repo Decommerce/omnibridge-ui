@@ -125,34 +125,34 @@ export function handleAffirmationCompleted(event: AffirmationCompleted): void {
 
 export function handleCollectedSignatures(event: CollectedSignatures): void {
     log.debug('Parsing CollectedSignatures', []);
-    // let ambInstance = AMB.bind(event.address);
-    // let message = ambInstance.try_message(event.params.messageHash);
-    // if (!message.reverted) {
-    //     let messageDetails = parseMessage(message.value.toHexString());
-    //     // const recipient = messageDetails.recipient;
-    //     // const amount = messageDetails.amount;
-    //     // const txHash = messageDetails.txHash;
-    //     // log.debug('Parsing CollectedSignatures: recipient:{}, value: {}, transactionHash:{}', [recipient, amount, txHash]);
-    //     let msg = Message.load(messageDetails.txHash);
-    //     if (msg != null) {
-    //         msg.msgData = message.value;
-    //         msg.msgHash = event.params.messageHash;
-    //         let signatures = new Array<Bytes>();
-    //         for (
-    //             let i = BigInt.fromI32(0);
-    //             i.lt(event.params.NumberOfCollectedSignatures);
-    //             i = i.plus(BigInt.fromI32(1))
-    //         ) {
-    //             let signature = ambInstance.try_signature(
-    //                 event.params.messageHash,
-    //                 i,
-    //             );
-    //             if (!signature.reverted) {
-    //                 signatures.push(signature.value);
-    //             }
-    //         }
-    //         msg.signatures = signatures;
-    //         msg.save();
-    //     }
-    // }
+    let ambInstance = AMB.bind(event.address);
+    let message = ambInstance.try_message(event.params.messageHash);
+    if (!message.reverted) {
+        let messageDetails = parseMessage(message.value.toHexString());
+        // const recipient = messageDetails.recipient;
+        // const amount = messageDetails.amount;
+        // const txHash = messageDetails.txHash;
+        // log.debug('Parsing CollectedSignatures: recipient:{}, value: {}, transactionHash:{}', [recipient, amount, txHash]);
+        let msg = Message.load(messageDetails.txHash);
+        if (msg != null) {
+            msg.msgData = message.value;
+            msg.msgHash = event.params.messageHash;
+            let signatures = new Array<Bytes>();
+            for (
+                let i = BigInt.fromI32(0);
+                i.lt(event.params.NumberOfCollectedSignatures);
+                i = i.plus(BigInt.fromI32(1))
+            ) {
+                let signature = ambInstance.try_signature(
+                    event.params.messageHash,
+                    i,
+                );
+                if (!signature.reverted) {
+                    signatures.push(signature.value);
+                }
+            }
+            msg.signatures = signatures;
+            msg.save();
+        }
+    }
 }
