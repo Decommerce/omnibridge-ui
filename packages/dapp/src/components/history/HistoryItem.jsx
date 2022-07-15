@@ -226,10 +226,10 @@ export const HistoryItem = ({
             <Text my="auto" textAlign="right">
               {`${formatValue(
                 BigNumber.from(amount),
-                toToken.decimals,
-              )} ${tokenSymbol}`}
+                18, // decimal is always 18
+              )} DECOM`}
             </Text>
-            <AddToMetamask token={toToken} ml="0.25rem" />
+            {/* <AddToMetamask token={toToken} ml="0.25rem" /> */}
           </Flex>
         </Flex>
         {claimed ? (

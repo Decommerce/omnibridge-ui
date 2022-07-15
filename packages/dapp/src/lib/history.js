@@ -8,20 +8,18 @@ const pageSize = 1000;
 const requestsUserQuery = gql`
   query getRequests($user: String!, $first: Int!, $skip: Int!) {
     requests: userRequests(
-      where: { user: $user }
+      where: { recipient: $user }
       orderBy: txHash
       orderDirection: desc
       first: $first
       skip: $skip
     ) {
-      user: recipient
+      recipient
       txHash
       messageId
       timestamp
       amount
-      token
       decimals
-      symbol
       message {
         txHash
         messageId: msgId
@@ -35,20 +33,18 @@ const requestsUserQuery = gql`
 const requestsRecipientQuery = gql`
   query getRequests($user: String!, $first: Int!, $skip: Int!) {
     requests: userRequests(
-      where: { user_not: $user, recipient: $user }
+      where: { recipient: $user }
       orderBy: txHash
       orderDirection: desc
       first: $first
       skip: $skip
     ) {
-      user: recipient
+      recipient
       txHash
       messageId
       timestamp
       amount
-      token
       decimals
-      symbol
       message {
         txHash
         messageId: msgId
@@ -70,7 +66,6 @@ const executionsQuery = gql`
     ) {
       txHash
       messageId
-      token
       status
     }
   }
@@ -159,18 +154,6 @@ export const combineRequestsWithExecutions = (
       receivingTx: execution?.txHash,
       status: execution?.status,
       amount: req.amount,
-      fromToken: {
-        address: req.token,
-        decimals: req.decimals,
-        symbol: req.symbol,
-        chainId,
-      },
-      toToken: {
-        address: execution ? execution.token : ADDRESS_ZERO,
-        decimals: req.decimals,
-        symbol: req.symbol,
-        chainId: bridgeChainId,
-      },
       message: req.message,
     };
   });
