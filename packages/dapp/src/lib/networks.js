@@ -32,7 +32,7 @@ const ETH_DCC_BRIDGE_CONFIG = {
     foreignGraphName: 'http://35.193.218.251:9000/subgraphs/name/test/rinkeby',
     homeGraphName: 'http://35.193.218.251:9010/subgraphs/name/test/decommerce',
     ambLiveMonitorPrefix: '',
-    claimDisabled: true,
+    claimDisabled: false,
     tokensClaimDisabled: [],
 };
 
@@ -69,7 +69,7 @@ const RINKEBY_DCC_BRIDGE_CONFIG = {
     foreignGraphName: 'http://35.193.218.251:9000/subgraphs/name/test/rinkeby',
     homeGraphName: 'http://35.193.218.251:9010/subgraphs/name/test/decommerce',
     ambLiveMonitorPrefix: '',
-    claimDisabled: true,
+    claimDisabled: false,
     tokensClaimDisabled: [],
 };
 
