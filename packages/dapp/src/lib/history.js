@@ -129,13 +129,14 @@ const getRequestsWithQuery = async (user, graphEndpoint, query) => {
 };
 
 export const getRequests = async (user, graphEndpoint) => {
-  const [userRequests, recipientRequests] = await Promise.all([
-    getRequestsWithQuery(user, graphEndpoint, requestsUserQuery),
-    getRequestsWithQuery(user, graphEndpoint, requestsRecipientQuery),
-  ]);
-  return {
-    requests: [...userRequests.requests, ...recipientRequests.requests],
-  };
+  // const [userRequests, recipientRequests] = await Promise.all([
+  //   getRequestsWithQuery(user, graphEndpoint, requestsUserQuery),
+  //   getRequestsWithQuery(user, graphEndpoint, requestsRecipientQuery),
+  // ]);
+  // return {
+  //   requests: [...userRequests.requests, ...recipientRequests.requests],
+  // };
+  return getRequestsWithQuery(user, graphEndpoint, requestsRecipientQuery);
 };
 
 export const combineRequestsWithExecutions = (

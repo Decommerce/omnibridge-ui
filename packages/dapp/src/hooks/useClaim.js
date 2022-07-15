@@ -146,13 +146,20 @@ export const useClaim = () => {
           : null;
       if (!message) {
         const homeProvider = await getEthersProvider(homeChainId);
-        message = await getMessage(true, homeProvider, homeAmbAddress, txHash);
+        try {
+          message = await getMessage(true, homeProvider, homeAmbAddress, txHash);
+        } catch (error) {
+          throw Error(
+            `Not Collected Signature yet`,
+          );
+        }
+        
       }
       const foreignProvider = await getEthersProvider(foreignChainId);
       const claimed = await messageCallStatus(
         foreignAmbAddress,
         foreignProvider,
-        message.messageId,
+        txHash,
       );
       if (claimed) {
         throw Error(TOKENS_CLAIMED);

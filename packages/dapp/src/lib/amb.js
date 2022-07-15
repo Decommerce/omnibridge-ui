@@ -78,11 +78,10 @@ export const executeSignatures = async (
     'function safeExecuteSignaturesWithAutoGasLimit(bytes _data, bytes _signatures) external',
   ];
   const ambContract = new Contract(address, abi, ethersProvider.getSigner());
-
-  let executeSignaturesFunc = ambContract.executeSignatures;
-  if (version > '5.6.0') {
-    executeSignaturesFunc = ambContract.safeExecuteSignaturesWithAutoGasLimit;
-  }
+  const executeSignaturesFunc = ambContract.executeSignatures;
+  // if (version > '5.6.0') {
+  //   executeSignaturesFunc = ambContract.safeExecuteSignaturesWithAutoGasLimit;
+  // }
 
   if (!signatures || signatures.length === 0) {
     throw new Error(NOT_ENOUGH_COLLECTED_SIGNATURES);

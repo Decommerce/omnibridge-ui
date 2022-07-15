@@ -64,7 +64,7 @@ const RINKEBY_DCC_BRIDGE_CONFIG = {
     wrappedForeignCurrencyAddress: '0x6bF4A0E6d4005eA12c31fbaD8dA5432116834767'.toLowerCase(),
     foreignMediatorAddress: '0x5b1F5D4fEd4A04bA9EDc43Fc8854f604559cB683'.toLowerCase(),
     homeMediatorAddress: '0xe8bfd2447b26232eb6f53794d2d920233a87e0d6'.toLowerCase(),
-    foreignAmbAddress: '0xFa19212168114519688fcFC69a1A277505ee2CD6'.toLowerCase(),
+    foreignAmbAddress: '0xf00C18a6716448e447B986c27FD0a715bbEdea4C'.toLowerCase(),
     homeAmbAddress: '0x3150899C78B3F73c207ac2677f4bA87354f2B7De'.toLowerCase(),
     foreignGraphName: 'http://35.193.218.251:9000/subgraphs/name/test/rinkeby',
     homeGraphName: 'http://35.193.218.251:9010/subgraphs/name/test/decommerce',

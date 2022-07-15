@@ -91,10 +91,10 @@ export const messageCallStatus = async (
   messageId,
 ) => {
   const abi = [
-    'function messageCallStatus(bytes32 _messageId) public view returns (bool)',
+    'function relayedMessages(bytes32 _txHash) public view returns (bool)',
   ];
   const ambContract = new Contract(ambAddress, abi, ethersProvider);
-  const claimed = await ambContract.messageCallStatus(messageId);
+  const claimed = await ambContract.relayedMessages(messageId);
   return claimed;
 };
 

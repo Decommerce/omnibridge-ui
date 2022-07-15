@@ -26,7 +26,7 @@ class GraphHealthStore {
   async updateGraphHealth() {
     await Promise.all(
       subgraphs.map(async subgraph => {
-        const status = await getHealthStatus(subgraph);
+        const status = this.graphHealth[subgraph] + 1;
         this.graphHealth[subgraph] = status;
       }),
     );

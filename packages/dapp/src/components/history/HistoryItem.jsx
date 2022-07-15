@@ -51,6 +51,8 @@ const networkTags = {
   42: <Tag bg="#5A74DA" txt="Kovan" />,
   77: <Tag bg="#4DA9A6" txt="POA Sokol" />,
   56: <Tag bg="#5A74DA" txt="BSC" />,
+  4: <Tag bg="#5A74DA" txt="Rinkeby" />,
+  8787: <Tag bg="#4DA9A6" txt="Decommerce" />,
 };
 
 const getNetworkTag = chainId => networkTags[chainId];
@@ -115,6 +117,7 @@ export const HistoryItem = ({
   const claimTokens = useCallback(async () => {
     try {
       setClaiming(true);
+
       await claim(sendingTx, message);
     } catch (claimError) {
       logError({ claimError });
@@ -251,6 +254,7 @@ export const HistoryItem = ({
               colorScheme="blue"
               onClick={claimTokens}
               isLoading={claiming || executing}
+              disabled={chainId===foreignChainId}
             >
               Claim
             </Button>

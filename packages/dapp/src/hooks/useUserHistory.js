@@ -41,19 +41,24 @@ export const useUserHistory = () => {
         homeChainId,
         foreignChainId,
       );
+
       const foreignTransfers = combineRequestsWithExecutions(
         foreignRequests,
         homeExecutions,
         foreignChainId,
         homeChainId,
       );
+
       const allTransfers = [...homeTransfers, ...foreignTransfers].sort(
         (a, b) => b.timestamp - a.timestamp,
       );
+
       if (isSubscribed) {
         setTransfers(allTransfers);
         setLoading(false);
       }
+
+
     }
 
     update();

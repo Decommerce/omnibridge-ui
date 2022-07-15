@@ -141,12 +141,7 @@ const fetchTokenDetailsFromContract = async token => {
 
 export const fetchTokenDetails = async (bridgeDirection, token) => {
   const mediatorAddress = getMediatorAddress(bridgeDirection, token);
-  console.log(
-    'token details(token, direction, mediator) ',
-    token,
-    bridgeDirection,
-    mediatorAddress,
-  );
+  
   if (token?.address === ADDRESS_ZERO) {
     const { name, symbol, decimals, mode } = nativeCurrencies[token.chainId];
     return {

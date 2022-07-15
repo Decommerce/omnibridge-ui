@@ -32,8 +32,6 @@ const SettingsContext = React.createContext({});
 export const SettingsProvider = ({ children }) => {
   const [queryToken, setQueryToken] = useState(null);
   
-  console.log('settings provider', DEFAULT_BRIDGE_DIRECTION, BRIDGE_DIRECTION);
-  
   const [bridgeDirection, setBridgeDirection] = useLocalState(
     DEFAULT_BRIDGE_DIRECTION,
     BRIDGE_DIRECTION,
