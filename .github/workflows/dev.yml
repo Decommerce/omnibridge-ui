@@ -26,4 +26,31 @@ jobs:
         cache: 'npm'
     - run: yarn install
     - run: yarn dapp:build
-    - run: sudo cp build/* /var/www/wallet/
+      env:
+        CI: false
+        REACT_APP_DEFAULT_BRIDGE_DIRECTION: rinkeby-dcc
+        REACT_APP_ENABLED_BRIDGES: eth-xdai bsc-xdai poa-xdai eth-bsc kovan-sokol eth-dcc rinkeby-dcc
+        REACT_APP_INFURA_ID: 437197961e4c41c68081440a6677e9d2
+        REACT_APP_GAS_PRICE_SUPPLIER_URL: https://gasprice.poa.network/
+        REACT_APP_GAS_PRICE_SPEED_TYPE: standard
+        REACT_APP_GAS_PRICE_FALLBACK_GWEI: 50
+        REACT_APP_GAS_PRICE_UPDATE_INTERVAL: 60000
+        REACT_APP_ETH_PRICE_API_URL: https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=USD
+        REACT_APP_ETH_PRICE_UPDATE_INTERVAL: 60000
+        REACT_APP_TITLE: OmniBridge - %c
+        REACT_APP_DESCRIPTION: The OmniBridge multi-token extension is the simplest way to transfer ANY ERC20/ERC677/ERC827 token to and from the xDai chain.
+        REACT_APP_UI_STATUS_UPDATE_INTERVAL: 5000
+        REACT_APP_DEBUG_LOGS: true
+        REACT_APP_GRAPH_HEALTH_UPDATE_INTERVAL: 60000
+        REACT_APP_GRAPH_HEALTH_THRESHOLD_BLOCKS: 10
+        REACT_APP_COINZILLA_API_KEY: <API_KEY>
+        REACT_APP_OWLRACLE_API_KEY: <API-KEY>
+        REACT_APP_XDAI_RPC_URL: https://rpc.xdaichain.com https://dai.poa.network
+        REACT_APP_POA_RPC_URL: https://core.poa.network
+        REACT_APP_SOKOL_RPC_URL: https://sokol.poa.network
+        REACT_APP_MAINNET_RPC_URL: https://mainnet.infura.io/v3/437197961e4c41c68081440a6677e9d2 https://mainnet-nethermind.blockscout.com/
+        REACT_APP_KOVAN_RPC_URL: https://kovan.infura.io/v3/437197961e4c41c68081440a6677e9d2 https://kovan.poa.network/
+        REACT_APP_BSC_RPC_URL: https://bsc-dataseed.binance.org https://bsc-dataseed1.defibit.io/
+        REACT_APP_DCC_RPC_URL: https://chain.decommerce.com
+        REACT_APP_RINKEBY_RPC_URL: https://rinkeby.infura.io/v3/437197961e4c41c68081440a6677e9d2
+    - run: sudo cp packages/dapp/build/* /var/www/wallet/
