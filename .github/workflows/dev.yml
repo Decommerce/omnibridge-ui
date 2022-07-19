@@ -53,4 +53,4 @@ jobs:
         REACT_APP_BSC_RPC_URL: https://bsc-dataseed.binance.org https://bsc-dataseed1.defibit.io/
         REACT_APP_DCC_RPC_URL: https://chain.decommerce.com
         REACT_APP_RINKEBY_RPC_URL: https://rinkeby.infura.io/v3/437197961e4c41c68081440a6677e9d2
-    - run: sudo cp packages/dapp/build/* /var/www/wallet/
+    - run: sudo cp -r packages/dapp/build/* /var/www/wallet/
